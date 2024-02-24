@@ -1,3 +1,4 @@
+import { FaBars } from 'react-icons/fa';
 import { Link, useLocation } from 'react-router-dom';
 
 function Breadcrumbs() {
@@ -14,7 +15,7 @@ function Breadcrumbs() {
                                 <span style={{ color: 'gray' }}>{pathname}</span>
                             ) : (
                                 <Link to={`/${pathnames.slice(0, index + 4).join('/')}`}>
-                                    {pathname}
+                                     <FaBars/>{pathname}
                                 </Link>
                             )}
                         </li>
