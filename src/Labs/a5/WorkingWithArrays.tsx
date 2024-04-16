@@ -11,7 +11,8 @@ function WorkingWithArrays() {
       due: "2021-09-09",
       completed: false,
     });  
-    const [todos, setTodos] = useState<any[]>([]);
+    const [todos, setTodos] = useState([todo]);
+
     const postTodo = async () => {
       const response = await axios.post(API, todo);
       setTodos([...todos, response.data]);
@@ -20,9 +21,11 @@ function WorkingWithArrays() {
       const response = await axios.get(API);
       setTodos(response.data);
     };
+    
     useEffect(() => {
       fetchTodos();
     }, []);
+
     const removeTodo = async (todo: { id: number; }) => {
       const response = await axios
         .get(`${API}/${todo.id}/delete`);
